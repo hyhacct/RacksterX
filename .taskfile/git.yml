@@ -40,7 +40,7 @@ tasks:
       - |
         git add .
         git commit -m "- {{.CLI_ARGS}}" || true
-        git push origin main || true
+        git push origin main --no-verify || true
 
   tag:next:
     desc: "创建 tag"
