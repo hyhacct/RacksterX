@@ -40,6 +40,28 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'apps',
+    path: '/apps',
+    component: 'layout.base$view.apps',
+    meta: {
+      title: 'apps',
+      i18nKey: 'route.apps',
+      icon: 'uim:apps',
+      order: 2
+    }
+  },
+  {
+    name: 'code',
+    path: '/code',
+    component: 'layout.base$view.code',
+    meta: {
+      title: 'code',
+      i18nKey: 'route.code',
+      icon: 'material-symbols:credit-card-outline-sharp',
+      order: 3
+    }
+  },
+  {
     name: 'home',
     path: '/home',
     component: 'layout.base$view.home',
@@ -73,6 +95,39 @@ export const generatedRoutes: GeneratedRoute[] = [
       i18nKey: 'route.login',
       constant: true,
       hideInMenu: true
+    }
+  },
+  {
+    name: 'logs',
+    path: '/logs',
+    component: 'layout.base$view.logs',
+    meta: {
+      title: 'logs',
+      i18nKey: 'route.logs',
+      icon: 'mdi:alert-octagon',
+      order: 5
+    }
+  },
+  {
+    name: 'user',
+    path: '/user',
+    component: 'layout.base$view.user',
+    meta: {
+      title: 'user',
+      i18nKey: 'route.user',
+      icon: 'solar:users-group-rounded-bold-duotone',
+      order: 6
+    }
+  },
+  {
+    name: 'vars',
+    path: '/vars',
+    component: 'layout.base$view.vars',
+    meta: {
+      title: 'vars',
+      i18nKey: 'route.vars',
+      icon: 'mdi:application-variable-outline',
+      order: 4
     }
   }
 ];
