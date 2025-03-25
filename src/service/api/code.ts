@@ -5,9 +5,9 @@ import { request } from "../request";
  *
  * @param data Data
  */
-export function fetchCreateOrUpdate(data: any) {
+export function fetchCreate(data: any) {
   return request({
-    url: "/code/createOrUpdate",
+    url: "/code/create",
     method: "post",
     data: data,
   });
@@ -18,9 +18,21 @@ export function fetchCreateOrUpdate(data: any) {
  *
  * @param data Data
  */
-export function fetchList(data: any) {
+export function fetchList() {
   return request({
     url: "/code/list",
+    method: "post",
+  });
+}
+
+/**
+ * Update
+ *
+ * @param data Data
+ */
+export function fetchUpdate(data: any) {
+  return request({
+    url: "/code/update",
     method: "post",
     data: data,
   });

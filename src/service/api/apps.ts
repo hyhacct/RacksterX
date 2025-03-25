@@ -50,3 +50,15 @@ export function fetchSwitch(data: any) {
     data: data,
   });
 }
+
+/**
+ * Get apps list
+ *
+ * @param data Data
+ */
+export function fetchPreview() {
+  return request({
+    url: "/apps/perview",
+    method: "post",
+  });
+}
