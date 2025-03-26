@@ -62,6 +62,7 @@ const handleSubmit = (e) => {
   formRef.value?.validate((errors) => {
     if (!errors) {
       appsStore.createOrUpdateApp(form.value)
+      close();
     } else {
       window.$message.error('表单验证失败');
     }

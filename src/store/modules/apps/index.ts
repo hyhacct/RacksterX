@@ -33,10 +33,7 @@ export const useStoreApps = defineStore("apps", () => {
   const createOrUpdateApp = async (data: any) => {
     loading.value = true;
     try {
-      const res = await fetchCreateOrUpdate(data);
-      if (!res?.data) {
-        return;
-      }
+      await fetchCreateOrUpdate(data);
       getTableList();
     } catch (error) {
       console.error("API创建或更新应用失败=>" + error);
@@ -49,10 +46,7 @@ export const useStoreApps = defineStore("apps", () => {
   const deleteApp = async (uuids: string[]) => {
     loading.value = true;
     try {
-      const res = await fetchDelete({ uuids });
-      if (!res?.data) {
-        return;
-      }
+      await fetchDelete({ uuids });
       getTableList();
     } catch (error) {
       console.error("API删除应用失败=>" + error);
@@ -70,10 +64,7 @@ export const useStoreApps = defineStore("apps", () => {
   const switchApp = async (data: any) => {
     loading.value = true;
     try {
-      const res = await fetchSwitch(data);
-      if (!res?.data) {
-        return;
-      }
+      await fetchSwitch(data);
       getTableList();
     } catch (error) {
       console.error("API切换应用状态失败=>" + error);

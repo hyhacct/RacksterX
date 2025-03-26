@@ -1,6 +1,12 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
-import { fetchList, fetchCreate, fetchUpdate } from "@/service/api/code";
+import {
+  fetchList,
+  fetchCreate,
+  fetchUpdate,
+  fetchDelete,
+  fetchSwitch,
+} from "@/service/api/code";
 import { fetchPreview } from "@/service/api/apps";
 
 // 搜索类型
@@ -51,7 +57,7 @@ export const useStoreCode = defineStore("code", () => {
   const createCode = async (data: any) => {
     loading.value = true;
     try {
-      const res = await fetchCreate(data);
+      await fetchCreate(data);
       getTableList();
     } catch (error) {
       console.log("API创建卡密失败", error);
@@ -78,9 +84,36 @@ export const useStoreCode = defineStore("code", () => {
   const updateCode = async (data: any) => {
     loading.value = true;
     try {
-      const res = await fetchUpdate(data);
+      await fetchUpdate(data);
+      getTableList();
     } catch (error) {
       console.log("API更新卡密失败", error);
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  // 删除卡密
+  const deleteCode = async (data: any) => {
+    loading.value = true;
+    try {
+      await fetchDelete(data);
+      getTableList();
+    } catch (error) {
+      console.log("API删除卡密失败", error);
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  // 更新启用状态
+  const switchCode = async (data: any) => {
+    loading.value = true;
+    try {
+      await fetchSwitch(data);
+      getTableList();
+    } catch (error) {
+      console.log("API更新启用状态失败", error);
     } finally {
       loading.value = false;
     }
@@ -109,6 +142,9 @@ export const useStoreCode = defineStore("code", () => {
     getTableList,
     createCode,
     getAppsPerview,
+    updateCode,
+    deleteCode,
+    switchCode,
     appsOptions,
   };
 });

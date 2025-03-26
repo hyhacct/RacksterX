@@ -37,3 +37,29 @@ export function fetchUpdate(data: any) {
     data: data,
   });
 }
+
+/**
+ * Delete
+ *
+ * @param data Data
+ */
+export function fetchDelete(data: any) {
+  return request({
+    url: "/code/delete",
+    method: "post",
+    data: data,
+  });
+}
+
+/**
+ * Switch
+ *
+ * @param data Data
+ */
+export function fetchSwitch(data: any) {
+  return request({
+    url: "/code/switch",
+    method: "post",
+    data: data,
+  });
+}
